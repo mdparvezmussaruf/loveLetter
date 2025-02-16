@@ -3,39 +3,20 @@ $(document).ready(function () {
   var btn_open = $("#open");
   var btn_reset = $("#reset");
 
-  // Open the envelope when clicked
   envelope.click(function () {
-      if (!envelope.hasClass("open")) {
-          openEnvelope();
-      }
+    open();
   });
-
   btn_open.click(function () {
-      openEnvelope();
+    open();
   });
-
   btn_reset.click(function () {
-      closeEnvelope();
+    close();
   });
 
-  function openEnvelope() {
-      if (!envelope.hasClass("open")) {
-          envelope.addClass("open").removeClass("close");
-      }
+  function open() {
+    envelope.addClass("open").removeClass("close");
   }
-
-  function closeEnvelope() {
-      if (!envelope.hasClass("close")) {
-          envelope.addClass("close").removeClass("open");
-      }
+  function close() {
+    envelope.addClass("close").removeClass("open");
   }
-
-  // Keyboard Support
-  $(document).keydown(function (e) {
-      if (e.key === "Enter") {
-          openEnvelope();
-      } else if (e.key === "Escape") {
-          closeEnvelope();
-      }
-  });
 });
